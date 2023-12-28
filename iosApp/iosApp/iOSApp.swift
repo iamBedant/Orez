@@ -2,9 +2,17 @@ import SwiftUI
 
 @main
 struct iOSApp: App {
-	var body: some Scene {
-		WindowGroup {
-			ContentView()
-		}
-	}
+    
+    @Environment(\.scenePhase)
+    var scenePhase: ScenePhase
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate: AppDelegate
+    
+    var body: some Scene {
+        
+        WindowGroup {
+            ContentView(appComponent: appDelegate.appComponent)
+        }
+    }
 }
