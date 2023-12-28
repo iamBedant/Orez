@@ -12,6 +12,7 @@ ktor = "2.3.7"
 ksp = "1.9.21-1.0.16"
 kotlininject = "0.6.3"
 androidx_annotation = "1.7.1"
+compose-plugin = "1.5.11"
 
 
 
@@ -44,3 +45,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 ksp = { id = 'com.google.devtools.ksp', version.ref = 'ksp' }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+
