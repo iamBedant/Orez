@@ -1,10 +1,10 @@
 [versions]
 agp = "8.2.0"
-kotlin = "1.9.20"
-compose = "1.5.4"
-compose-compiler = "1.5.4"
+kotlin = "1.9.21"
+compose = "1.5.7"
+compose-compiler = "1.5.7"
 compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+androidx-activityCompose = "1.8.2"
 napier = "2.6.1"
 kotlinx_coroutines = "1.7.3"
 kotlinx_immutable_collections = "0.3.7"
@@ -13,7 +13,7 @@ ksp = "1.9.21-1.0.16"
 kotlininject = "0.6.3"
 androidx_annotation = "1.7.1"
 compose-plugin = "1.5.11"
-
+mobiuskt = "1.1.0"
 
 
 [libraries]
@@ -24,10 +24,16 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
-
 kotlinx_immutable_collections = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinx_immutable_collections" }
 kotlinx_coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx_coroutines" }
 kotlinx_coroutines_test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx_coroutines" }
+mobiuskt-core = { module = "org.drewcarlson:mobiuskt-core", version.ref = "mobiuskt" }
+mobiuskt-test = { module = "org.drewcarlson:mobiuskt-test", version.ref = "mobiuskt" }
+mobiuskt-extras = { module = "org.drewcarlson:mobiuskt-extras", version.ref = "mobiuskt" }
+mobiuskt-coroutines = { module = "org.drewcarlson:mobiuskt-coroutines", version.ref = "mobiuskt" }
+mobiuskt-compose = { module = "org.drewcarlson:mobiuskt-compose", version.ref = "mobiuskt" }
+mobiuskt-codegen = { module = "org.drewcarlson:mobiuskt-codegen", version.ref = "mobiuskt" }
+mobiuskt-codegen-api = { module = "org.drewcarlson:mobiuskt-codegen-api", version.ref = "mobiuskt" }
 
 ktor_core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor_client_okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }

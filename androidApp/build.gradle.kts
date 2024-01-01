@@ -31,19 +31,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     implementation(projects.shared)
-    implementation(libs.compose.ui.tooling.preview)
     implementation(libs.androidx.activity.compose)
-    debugImplementation(libs.compose.ui.tooling)
     implementation(libs.kotlininject.runtime)
     ksp(libs.kotlininject.compiler)
 }
