@@ -1,9 +1,8 @@
-import org.jetbrains.compose.compose
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -21,21 +20,19 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "arch"
+            baseName = "profile"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.mobiuskt.core)
-            api(libs.mobiuskt.coroutines)
-            api(libs.mobiuskt.test)
-            api(libs.kotlinx.coroutines)
-            api(projects.navigation)
-            implementation(libs.napier)
-            api(compose.runtime)
-            implementation(libs.androidx.annotation)
+            implementation(projects.arch)
+            implementation(projects.base)
+            implementation(compose.ui)
+            implementation(compose.material3)
+            implementation(libs.decompose)
+            implementation(libs.decompose.extensions.compose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -44,7 +41,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.iambedant.arch"
+    namespace = "com.iambedant.profile"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

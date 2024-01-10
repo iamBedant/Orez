@@ -12,7 +12,8 @@ import shared
 
 class AppDelegate : NSObject, UIApplicationDelegate {
     lazy var appComponent: InjectApplicationComponent = InjectApplicationComponent()
-    
+    let lifecycleHolder: LifecycleHolder = LifecycleHolder()
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         

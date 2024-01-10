@@ -1,11 +1,16 @@
 package com.iambedant.home.domain
 
-data class HomeModel (
-    val isLoading: Boolean
+data class HomeModel(
+    val isLoading: Boolean,
+    val data: String = "",
 ) {
     fun convertToUiData(): HomeUiModel {
-        TODO("Not yet implemented")
+        return HomeUiModel(
+            isLoading,
+            data
+        )
     }
+
     companion object {
         fun defaultModel(): HomeModel {
             return HomeModel(false)
@@ -14,5 +19,6 @@ data class HomeModel (
 }
 
 data class HomeUiModel(
-    val shouldShowLoading: Boolean
+    val shouldShowLoading: Boolean,
+    val message: String,
 )

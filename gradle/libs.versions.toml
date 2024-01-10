@@ -6,6 +6,7 @@ compose-compiler = "1.5.7"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.2"
 napier = "2.6.1"
+essenty = "1.3.0"
 kotlinx_coroutines = "1.7.3"
 kotlinx_immutable_collections = "0.3.7"
 ktor = "2.3.7"
@@ -14,6 +15,7 @@ kotlininject = "0.6.3"
 androidx_annotation = "1.7.1"
 compose-plugin = "1.5.11"
 mobiuskt = "1.1.0"
+decompose = "2.2.2-compose-experimental"
 
 
 [libraries]
@@ -34,6 +36,10 @@ mobiuskt-coroutines = { module = "org.drewcarlson:mobiuskt-coroutines", version.
 mobiuskt-compose = { module = "org.drewcarlson:mobiuskt-compose", version.ref = "mobiuskt" }
 mobiuskt-codegen = { module = "org.drewcarlson:mobiuskt-codegen", version.ref = "mobiuskt" }
 mobiuskt-codegen-api = { module = "org.drewcarlson:mobiuskt-codegen-api", version.ref = "mobiuskt" }
+decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+decompose_extensions_compose = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
+essenty_lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
+essenty_backhandler = { module = "com.arkivanov.essenty:back-handler", version.ref = "essenty" }
 
 ktor_core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor_client_okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
@@ -52,4 +58,5 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 ksp = { id = 'com.google.devtools.ksp', version.ref = 'ksp' }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlin_serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 

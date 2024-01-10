@@ -22,7 +22,6 @@ class DeferredEventSource<E> : EventSource<E> {
                 eventConsumer.accept(e)
             }
         }
-
         return Disposable { job.cancel() }
     }
 

@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.ksp)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -23,19 +24,29 @@ kotlin {
         it.binaries.framework {
             baseName = "shared"
             isStatic = true
+            export(libs.decompose)
             export(projects.base)
             export(projects.network)
+            export(libs.essenty.lifecycle)
+            export(libs.essenty.backhandler)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
             //put your multiplatform dependencies here
+            api(projects.home)
             api(projects.base)
             api(projects.network)
+            api(projects.profile)
+            api(projects.navigation)
+            implementation(projects.home)
             implementation(libs.kotlinx.coroutines)
             implementation(libs.napier)
-
+            api(libs.decompose)
+            api(libs.essenty.lifecycle)
+            api(libs.essenty.backhandler)
+            implementation(libs.decompose.extensions.compose)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)

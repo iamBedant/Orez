@@ -2,18 +2,26 @@ import SwiftUI
 import shared
 
 struct ComposeView: UIViewControllerRepresentable {
-    var greetingMessage: String
+    let viewControllerComponent: InjectViewControllerComponent
+    let backDispatcher: BackDispatcher
+    
+    init(viewControllerComponent: InjectViewControllerComponent, backDispatcher: BackDispatcher) {
+        self.viewControllerComponent = viewControllerComponent
+        self.backDispatcher = backDispatcher
+    }
+    
     func makeUIViewController(context: Context) -> UIViewController {
-        MainViewControllerKt.MainViewController(greet: greetingMessage)
+        viewControllerComponent.homeViewControllerFactory(backDispatcher)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
 struct ContentView: View {
-    let appComponent: ApplicationComponent
+    let viewControllerComponent: InjectViewControllerComponent
+    let backDispatcher: BackDispatcher
     var body: some View {
-        ComposeView(greetingMessage: appComponent.greeter.greet())
-                .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+        ComposeView(viewControllerComponent: viewControllerComponent, backDispatcher: backDispatcher)
+                .ignoresSafeArea(.keyboard)
     }
 }

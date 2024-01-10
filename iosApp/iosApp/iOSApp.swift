@@ -1,4 +1,5 @@
 import SwiftUI
+import shared
 
 @main
 struct iOSApp: App {
@@ -9,10 +10,21 @@ struct iOSApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     var appDelegate: AppDelegate
     
+    var lifecycleHolder: LifecycleHolder { appDelegate.lifecycleHolder }
+
     var body: some Scene {
-        
+        let backDispatcher = BackDispatcherKt.BackDispatcher()
+        let viewControllerComponent = InjectViewControllerComponent(
+                        componentContext: DefaultComponentContext(
+                        lifecycle: lifecycleHolder.lifecycle,
+                        stateKeeper: nil,
+                        instanceKeeper: nil, 
+                        backHandler: backDispatcher
+                    ),
+                        applicationComponent: appDelegate.appComponent
+                )
         WindowGroup {
-            ContentView(appComponent: appDelegate.appComponent)
+            ContentView(viewControllerComponent: viewControllerComponent, backDispatcher: backDispatcher)
         }
     }
 }
