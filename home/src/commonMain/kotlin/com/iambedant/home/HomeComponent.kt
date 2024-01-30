@@ -44,9 +44,8 @@ class HomeComponent(
         }
 
     internal val data = componentInstance.data
-    fun dispatchEvent(event: HomeEvent) {
-        componentInstance.dispatchEvent(event)
-    }
+    fun getEventSource() = componentInstance.getEventSource()
+
 
     init {
         lifecycle.doOnCreate {
@@ -89,8 +88,7 @@ class HomeComponent(
             super.onDestroy()
         }
 
-        override fun dispatchEvent(event: HomeEvent) {
-            eventSource.notifyEvent(event)
-        }
+        fun getEventSource() = eventSource
+
     }
 }

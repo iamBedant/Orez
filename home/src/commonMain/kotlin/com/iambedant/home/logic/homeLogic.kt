@@ -6,6 +6,7 @@ import com.iambedant.home.domain.HomeEffect
 import com.iambedant.home.domain.HomeEvent
 import com.iambedant.home.domain.HomeModel
 import com.iambedant.home.domain.MoveToProfile
+import com.iambedant.home.domain.NavItemClicked
 import com.iambedant.home.domain.ProfileClicked
 import com.iambedant.home.domain.UpdateHomeData
 import kt.mobius.Effects
@@ -24,4 +25,5 @@ fun update(model: HomeModel, event: HomeEvent): Next<HomeModel, HomeEffect> =
         FetchHomeData -> Next.noChange()
         ProfileClicked -> Next.dispatch(Effects.effects(MoveToProfile))
         is UpdateHomeData -> Next.next(model.copy(data = event.data))
+        is NavItemClicked -> Next.next(model.copy(selectedTab = event.nav))
     }

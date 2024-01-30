@@ -2,35 +2,32 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
-    jvmToolchain(17)
-    androidTarget()
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+    
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "home"
+            baseName = "icons"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
-            implementation(projects.arch)
-            implementation(projects.base)
             implementation(compose.ui)
             implementation(compose.material3)
-            implementation(projects.icons)
-            implementation(projects.theme)
-            implementation(libs.decompose)
-            implementation(libs.decompose.extensions.compose)
-            implementation(libs.kotlinx.immutable.collections)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -39,7 +36,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.iambedant.home"
+    namespace = "com.iambedant.icons"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
